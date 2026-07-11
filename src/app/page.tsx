@@ -175,12 +175,12 @@ export default function HomePage() {
                 <PhotoDisplay
                   src="/images/students-2.jpg"
                   alt="Dar e Arqam students in school uniform"
-                  aspectRatio="aspect-[4/3]"
+                  aspectRatio="aspect-[4/6]"
                 />
                 <PhotoDisplay
                   src="/images/students-3.jpg"
                   alt="Dar e Arqam student portrait"
-                  aspectRatio="aspect-[4/3]"
+                  aspectRatio="aspect-[4/6]"
                 />
               </div>
             </div>
