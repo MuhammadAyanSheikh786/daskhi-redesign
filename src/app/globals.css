@@ -8,7 +8,7 @@
   --color-primary-dark: #1E40AF;
   --color-accent: #F59E0B;
   --color-accent-light: #FBBF24;
-  --color-cream: #FFFFFF;
+  --color-cream: #F5F2ED;
   --color-ink: #1A1A1A;
   --color-muted: #6B7280;
   --color-sky: #EFF6FF;
@@ -22,12 +22,12 @@
 }
 
 :root {
-  --bg: #FFFFFF;
+  --bg: #F5F2ED;
   --fg: #1A1A1A;
   --card: #FFFFFF;
   --card-border: rgba(37, 99, 235, 0.08);
-  --nav-bg: rgba(255, 255, 255, 0.85);
-  --hero-overlay: rgba(255, 255, 255, 0.6);
+  --nav-bg: rgba(245, 242, 237, 0.85);
+  --hero-overlay: rgba(245, 242, 237, 0.6);
   --section-alt: rgba(37, 99, 235, 0.03);
 }
 

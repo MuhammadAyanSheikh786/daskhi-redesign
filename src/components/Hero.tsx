@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import IslamicPattern from "./IslamicPattern";
-import FloatingShapes from "./FloatingShapes";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -13,52 +13,76 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const patternRotate = useTransform(scrollYProgress, [0, 1], [0, 20]);
+  const float1Y = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+  const float2Y = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
+  const float1Rotate = useTransform(scrollYProgress, [0, 1], [0, -8]);
+  const float2Rotate = useTransform(scrollYProgress, [0, 1], [0, 6]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary/[0.02] via-transparent to-accent/[0.02] dark:from-primary/[0.05] dark:via-transparent dark:to-accent/[0.05]"
     >
-      <motion.div
-        style={{ y: bgY, opacity }}
-        className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 dark:from-primary/15 dark:via-transparent dark:to-accent/10"
-      />
-
-      <FloatingShapes count={8} />
-
-      <motion.div
-        style={{ rotate: patternRotate }}
-        className="absolute top-20 right-0 w-[500px] h-[500px] pointer-events-none"
-      >
-        <IslamicPattern className="w-full h-full text-primary/10 dark:text-accent/[0.07]" />
+      <motion.div style={{ opacity }} className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-1/2 h-full">
+          <Image
+            src="/images/hero-main.jpg"
+            alt="Dar e Arqam students"
+            fill
+            className="object-cover"
+            sizes="50vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[var(--bg)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--bg)]" />
+        </div>
       </motion.div>
 
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] right-[15%] w-32 h-32 rounded-full bg-accent/10 blur-3xl"
-        />
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[30%] left-[10%] w-40 h-40 rounded-full bg-primary/10 blur-3xl"
-        />
-      </div>
+      <motion.div
+        style={{ rotate: useTransform(scrollYProgress, [0, 1], [0, 15]) }}
+        className="absolute top-10 right-0 w-[400px] h-[400px] pointer-events-none"
+      >
+        <IslamicPattern className="w-full h-full text-primary/[0.06] dark:text-accent/[0.04]" />
+      </motion.div>
 
-      <motion.div style={{ y: textY, opacity }} className="relative w-full">
+      <motion.div
+        style={{ y: float1Y, rotate: float1Rotate, opacity }}
+        className="hidden lg:block absolute top-[15%] right-[5%] w-[280px] h-[200px] pointer-events-none z-10"
+      >
+        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 dark:shadow-accent/10 animate-float">
+          <Image
+            src="/images/hero-float-1.jpg"
+            alt="Dar e Arqam students"
+            fill
+            className="object-cover"
+            sizes="280px"
+          />
+          <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl" />
+        </div>
+      </motion.div>
+
+      <motion.div
+        style={{ y: float2Y, rotate: float2Rotate, opacity }}
+        className="hidden lg:block absolute bottom-[18%] right-[22%] w-[240px] h-[180px] pointer-events-none z-10"
+      >
+        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 dark:shadow-accent/10 animate-float" style={{ animationDelay: "2s" }}>
+          <Image
+            src="/images/hero-float-2.jpg"
+            alt="Dar e Arqam students"
+            fill
+            className="object-cover"
+            sizes="240px"
+          />
+          <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl" />
+        </div>
+      </motion.div>
+
+      <motion.div style={{ y: textY, opacity }} className="relative w-full z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="max-w-3xl">
+          <div className="max-w-2xl lg:max-w-xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -79,7 +103,6 @@ export default function Hero() {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary-dark dark:text-cream leading-[1.1] tracking-tight"
-              style={{ textShadow: "0 2px 40px rgba(11,110,79,0.08)" }}
             >
               Excellence in{" "}
               <span className="text-accent">This World</span>
@@ -150,7 +173,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
         <div className="flex flex-col items-center gap-2 text-muted/40 dark:text-cream/30">
           <span className="text-[10px] tracking-[0.2em] uppercase font-medium">
