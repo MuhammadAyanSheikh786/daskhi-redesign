@@ -21,7 +21,7 @@ export default function EventCard({
     <ScrollReveal delay={index * 0.1}>
       <Link
         href={href}
-        className="block group p-6 rounded-2xl border transition-all"
+        className="block group p-6 rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 dark:hover:shadow-accent/5"
         style={{
           backgroundColor: "var(--card)",
           borderColor: "var(--card-border)",

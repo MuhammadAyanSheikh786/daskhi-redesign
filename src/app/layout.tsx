@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Yeseva_One } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/providers/ThemeProvider";
@@ -18,6 +18,15 @@ const yeseva = Yeseva_One({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F5F2ED" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A0B" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Dar e Arqam Schools Karachi | Excellence in This World & the Hereafter",
@@ -30,7 +39,15 @@ export const metadata: Metadata = {
     "DAS Karachi",
     "Islamic schools Karachi",
     "private schools Karachi",
-    "school admissions 2025",
+    "school admissions 2026",
+    "best schools in Karachi",
+    "O Level schools Karachi",
+    "A Level schools Karachi",
+    "Hifz school Karachi",
+    "Cambridge school Karachi",
+    "Matriculation school Karachi",
+    "Dar e Arqam Trust",
+    "Islamic education Pakistan",
   ],
   openGraph: {
     title: "Dar e Arqam Schools Karachi",
@@ -40,16 +57,58 @@ export const metadata: Metadata = {
     siteName: "Dar e Arqam Schools Karachi",
     locale: "en_PK",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dar e Arqam Schools Karachi",
+      },
+    ],
   },
   robots: { index: true, follow: true },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
+  "@type": "School",
   name: "Dar e Arqam Schools Karachi",
   url: "https://daskhi.org",
   telephone: "021-34811715",
+  email: "info@daskhi.org",
+  parentOrganization: {
+    "@type": "EducationalOrganization",
+    name: "Dar e Arqam Trust",
+  },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Karachi",
+    },
+  ],
+  knowsLanguage: ["English", "Urdu", "Arabic"],
+  department: [
+    {
+      "@type": "EducationalProgram",
+      name: "Cambridge O-Levels",
+      description: "Cambridge International General Certificate of Education Ordinary Level",
+    },
+    {
+      "@type": "EducationalProgram",
+      name: "Cambridge A-Levels",
+      description: "Cambridge International General Certificate of Education Advanced Level",
+    },
+    {
+      "@type": "EducationalProgram",
+      name: "Matriculation",
+      description: "Secondary School Certificate (SSC) - Board of Secondary Education Karachi",
+    },
+    {
+      "@type": "EducationalProgram",
+      name: "Hifz Program",
+      description: "Quran Memorization Program alongside formal education",
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "B9 Gulshan e Iqbal Block 4A",
@@ -62,6 +121,10 @@ const jsonLd = {
     bestRating: "5",
     ratingCount: "1250",
   },
+  sameAs: [
+    "https://www.facebook.com/darearqamschools",
+    "https://www.instagram.com/darearqamschoolsofficial",
+  ],
 };
 
 export default function RootLayout({

@@ -20,7 +20,7 @@ export default function Carousel({
 }: CarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start" },
-    autoplay ? [Autoplay({ delay: autoplayInterval, stopOnInteraction: true })] : []
+    autoplay ? [Autoplay({ delay: autoplayInterval, stopOnInteraction: true })] : [],
   );
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -42,6 +42,8 @@ export default function Carousel({
     };
   }, [emblaApi, onSelect]);
 
+  const showNav = slides.length > 3;
+
   return (
     <div className={`relative ${className}`}>
       <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
@@ -57,21 +59,21 @@ export default function Carousel({
         </div>
       </div>
 
-      {slides.length > 3 && (
+      {showNav && (
         <>
           <button
             onClick={() => emblaApi?.scrollPrev()}
             disabled={!canScrollPrev}
-            className="absolute -left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary-dark hover:bg-primary hover:text-cream transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-            aria-label="Previous"
+            className="absolute -left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-ink shadow-md flex items-center justify-center text-primary-dark dark:text-cream hover:bg-primary hover:text-cream dark:hover:bg-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed z-10"
+            aria-label="Previous slide"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => emblaApi?.scrollNext()}
             disabled={!canScrollNext}
-            className="absolute -right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary-dark hover:bg-primary hover:text-cream transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-            aria-label="Next"
+            className="absolute -right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-ink shadow-md flex items-center justify-center text-primary-dark dark:text-cream hover:bg-primary hover:text-cream dark:hover:bg-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed z-10"
+            aria-label="Next slide"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -81,10 +83,10 @@ export default function Carousel({
               <button
                 key={i}
                 onClick={() => emblaApi?.scrollTo(i)}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`rounded-full transition-all duration-300 ${
                   i === selectedIndex
-                    ? "bg-accent w-6"
-                    : "bg-primary/20 hover:bg-primary/40"
+                    ? "bg-accent w-6 h-2"
+                    : "bg-primary/20 dark:bg-cream/20 hover:bg-primary/40 dark:hover:bg-cream/40 w-2 h-2"
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />
