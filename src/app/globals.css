@@ -3,16 +3,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-primary: #0B6E4F;
-  --color-primary-light: #0D8A63;
-  --color-primary-dark: #08523B;
-  --color-accent: #C9A24B;
-  --color-accent-light: #D4B66A;
-  --color-cream: #F7F4EC;
+  --color-primary: #2563EB;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1E40AF;
+  --color-accent: #F59E0B;
+  --color-accent-light: #FBBF24;
+  --color-cream: #FFFFFF;
   --color-ink: #1A1A1A;
   --color-muted: #6B7280;
-  --color-sage: #8CA99A;
-  --color-sand: #E8E0D0;
+  --color-sky: #EFF6FF;
+  --color-sand: #FEFCE8;
   --color-card: var(--card);
   --color-card-border: var(--card-border);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -22,23 +22,23 @@
 }
 
 :root {
-  --bg: #F7F4EC;
+  --bg: #FFFFFF;
   --fg: #1A1A1A;
   --card: #FFFFFF;
-  --card-border: rgba(11, 110, 79, 0.06);
-  --nav-bg: rgba(247, 244, 236, 0.85);
-  --hero-overlay: rgba(247, 244, 236, 0.6);
-  --section-alt: rgba(11, 110, 79, 0.03);
+  --card-border: rgba(37, 99, 235, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --hero-overlay: rgba(255, 255, 255, 0.6);
+  --section-alt: rgba(37, 99, 235, 0.03);
 }
 
 .dark {
   --bg: #0A0A0B;
   --fg: #F0EDE4;
   --card: #141416;
-  --card-border: rgba(201, 162, 75, 0.08);
+  --card-border: rgba(245, 158, 11, 0.08);
   --nav-bg: rgba(10, 10, 11, 0.85);
   --hero-overlay: rgba(10, 10, 11, 0.7);
-  --section-alt: rgba(201, 162, 75, 0.03);
+  --section-alt: rgba(245, 158, 11, 0.03);
 }
 
 html {
@@ -53,12 +53,12 @@ body {
 }
 
 ::selection {
-  background: #C9A24B;
-  color: #0A0A0B;
+  background: #F59E0B;
+  color: #FFFFFF;
 }
 
 .dark ::selection {
-  background: #C9A24B;
+  background: #F59E0B;
   color: #0A0A0B;
 }
 

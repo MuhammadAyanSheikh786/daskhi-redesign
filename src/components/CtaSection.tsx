@@ -23,7 +23,7 @@ export default function CtaSection({
     <section className={`py-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-dark dark:from-primary-dark dark:to-[#063F2D] px-8 py-16 text-center">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-dark dark:from-primary-dark dark:to-[#1E3A5F] px-8 py-16 text-center">
             <div className="absolute inset-0 opacity-20 dark:opacity-10">
               <div className="absolute top-0 left-1/4 w-64 h-64 bg-accent rounded-full blur-3xl animate-pulse-glow" />
               <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/50 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "2s" }} />

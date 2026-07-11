@@ -49,7 +49,7 @@ export default function HomePage() {
             />
             <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
               <ScrollReveal direction="left">
-                <div className="group p-8 sm:p-10 md:p-12 rounded-2xl bg-gradient-to-br from-primary to-primary-dark dark:from-primary-dark dark:to-[#063F2D] text-cream relative overflow-hidden">
+                <div className="group p-8 sm:p-10 md:p-12 rounded-2xl bg-gradient-to-br from-primary to-primary-dark dark:from-primary-dark dark:to-[#1E3A5F] text-cream relative overflow-hidden">
                   <div className="absolute inset-0 opacity-10">
                     <svg viewBox="0 0 400 400" className="w-full h-full text-cream" fill="none">
                       <circle cx="200" cy="200" r="180" stroke="currentColor" strokeWidth="0.3" />

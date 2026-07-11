@@ -134,7 +134,7 @@ export default function AdmissionsPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right">
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-primary to-primary-dark dark:from-primary-dark dark:to-[#063F2D] text-cream relative overflow-hidden">
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-primary to-primary-dark dark:from-primary-dark dark:to-[#1E3A5F] text-cream relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-accent rounded-full blur-3xl" />
                 </div>
